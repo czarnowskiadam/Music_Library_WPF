@@ -1,0 +1,88 @@
+﻿<UserControl x:Class="platformy_NET.MWM.View.ArtistView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:platformy_NET.MWM.View"
+             mc:Ignorable="d" 
+             d:DesignHeight="450" d:DesignWidth="800">
+    <StackPanel>
+
+        <!-- Górny Panel -->
+        <StackPanel Orientation="Horizontal"
+                    Height="50">
+            <StackPanel Orientation="Horizontal"
+                        Width="200">
+                <TextBlock Text="Artist"
+                       Foreground="#ADFF2F"
+                       FontSize="28"
+                       HorizontalAlignment="Left"
+                       VerticalAlignment="Center"
+                       Margin="40,0,0,0"/>
+
+                <Image Source="/Images/artist.png"
+                   Width="40"
+                   Margin="10,5,0,0"/>
+            </StackPanel>
+
+
+            <StackPanel Orientation="Horizontal"
+                        Width="600">
+
+                <TextBox x:Name="TxtBox1" Width="250"
+                         Height="30"
+                         VerticalAlignment="Center"
+                         HorizontalAlignment="Left"
+                         Margin="30,5,0,0"
+                         Background="#787878"
+                         BorderThickness="0"
+                         VerticalContentAlignment="Center"
+                         Padding="5"
+                         Foreground="White"
+                         FontSize="11"
+                         KeyUp="TxtBox1_KeyUp">
+                    <TextBox.Resources>
+                        <Style TargetType="{x:Type Border}">
+                            <Setter Property="CornerRadius" Value="10"/>
+                        </Style>
+                    </TextBox.Resources>
+                </TextBox>
+            </StackPanel>
+
+
+        </StackPanel>
+
+
+        <!-- Wyświetlanie artystów -->
+        <StackPanel Margin="50">
+            <Border Width="600"
+                    Height="300"
+                    HorizontalAlignment="Center"
+                    VerticalAlignment="Center">
+                <ListBox x:Name="ArtistListBox"
+                         Width="600"
+                         Background="#363636"
+                         BorderThickness="0">
+                    <ListBox.ItemContainerStyle>
+                        <Style TargetType="ListBoxItem">
+                            <Setter Property="BorderThickness" Value="3"/>
+                            <Setter Property="BorderBrush" Value="#787878" />
+                        </Style>
+                    </ListBox.ItemContainerStyle>
+                    <ListBox.ItemTemplate>
+                        <DataTemplate>
+                            <StackPanel>
+                                <Image Source="{Binding Image}" Margin="5" Width="70" Height="70"/>
+                                <StackPanel>
+                                    <TextBlock Text="{Binding Name}" TextWrapping="Wrap" FontSize="16" FontStyle="Italic" Foreground="#ADFF2F"/>
+                                    <TextBlock Text="{Binding Followers}" Foreground="White"/>
+                                    <TextBlock Text="{Binding Popularity}" Foreground="White"/>
+                                </StackPanel>
+                            </StackPanel>
+                        </DataTemplate>
+                    </ListBox.ItemTemplate>
+                </ListBox>
+            </Border>
+        </StackPanel>
+    </StackPanel>
+</UserControl>
