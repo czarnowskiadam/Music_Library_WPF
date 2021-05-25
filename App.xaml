@@ -1,0 +1,42 @@
+﻿<Application x:Class="platformy_NET.App"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:local="clr-namespace:platformy_NET"
+             xmlns:viewModel="clr-namespace:platformy_NET.MWM.ViewModel"
+             xmlns:view="clr-namespace:platformy_NET.MWM.View"
+             StartupUri="MainWindow.xaml">
+    <Application.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="Theme/MenuButtonTheme.xaml"/>
+                <ResourceDictionary Source="Theme/TextboxTheme.xaml"/>
+                <ResourceDictionary Source="Theme/ExitButtonTheme.xaml"/>
+                <ResourceDictionary Source="Theme/MinimizeButtonTheme.xaml"/>
+                <ResourceDictionary Source="Theme/AlbumButtonTheme.xaml"/>
+                <ResourceDictionary Source="Theme/SongButtonTheme.xaml"/>
+                <ResourceDictionary Source="Theme/ArtistButtonTheme.xaml"/>
+            </ResourceDictionary.MergedDictionaries>
+
+            <DataTemplate DataType="{x:Type viewModel:HomeViewModel}">
+                <view:HomeView/>
+            </DataTemplate>
+            <DataTemplate DataType="{x:Type viewModel:LibraryViewModel}">
+                <view:LibraryView/>
+            </DataTemplate>
+            <DataTemplate DataType="{x:Type viewModel:FeedViewModel}">
+                <view:FeedView/>
+            </DataTemplate>
+            <DataTemplate DataType="{x:Type viewModel:ArtistViewModel}">
+                <view:ArtistView/>
+            </DataTemplate>
+            <DataTemplate DataType="{x:Type viewModel:SongViewModel}">
+                <view:SongView/>
+            </DataTemplate>
+            <DataTemplate DataType="{x:Type viewModel:AlbumViewModel}">
+                <view:AlbumView/>
+            </DataTemplate>
+
+        </ResourceDictionary>
+
+    </Application.Resources>
+</Application>
